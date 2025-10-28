@@ -9,9 +9,9 @@ It is currently under development in the `dev` branch. Changes are being tested 
 ###  Current Status
 
 - [x] Basic folder structure (`manual-deploy/`, `terraform-deploy/`)  
-- [x] Lambda handlers for validation, transformation, and load  
-- [x] SAM template (`manual-deploy/infra/template.yaml`)  
-- [x] Initial Terraform setup (`terraform-deploy/infra/`)  
+- [x] Lambda handlers for validation, transformation, and model  
+- [ ] SAM template (`manual-deploy/infra/template.yaml`)  
+- [ ] Initial Terraform setup (`terraform-deploy/infra/`)  
 - [ ] Complete deployment documentation  
 - [ ] Integration with EventBridge and automatic triggers  
 - [ ] Full pipeline testing in AWS  
@@ -21,21 +21,22 @@ It is currently under development in the `dev` branch. Changes are being tested 
 ###  Project Structure
 
 ```bash
+
 serverless-data-pipeline/
+├── src/                        
+│   ├── lambda_validate/
+│   │   └── app.py
+│   ├── lambda_cleaning/
+│   │   └── app.py
+│   └── lambda_model/
+│       └── app.py
 │
 ├── manual-deploy/              # Manual deployment with AWS SAM
-│   ├── src/
-│   │   ├── lambda_validate/
-│   │   │   └── app.py
-│   │   ├── lambda_transform/
-│   │   │   └── app.py
-│   │   └── lambda_load/
-│   │       └── app.py
 │   ├── infra/
 │   │   └── template.yaml       # SAM / CloudFormation template
 │   └── README.md               # SAM instructions (in progress)
 │
-├── terraform-deploy/           # Deployment with Terraform (IaC)
+├── terraform-deploy/
 │   ├── infra/
 │   │   ├── main.tf
 │   │   ├── s3.tf
@@ -46,7 +47,8 @@ serverless-data-pipeline/
 │   │   └── variables.tf
 │   └── README.md               # Terraform instructions (in progress)
 │
-└── README.md                   # This file
+└── README.md
+
 ```
 
 
@@ -77,4 +79,4 @@ README files in manual-deploy/ and terraform-deploy/ are in progress and will be
 MIT License — free for educational and professional use.
 
 ###  Author
-Victor A. Naya
+Victor A. N.
