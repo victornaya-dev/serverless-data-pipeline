@@ -10,8 +10,7 @@ It is currently under development in the `dev` branch. Changes are being tested 
 
 - [x] Basic folder structure (`manual-deploy/`, `terraform-deploy/`)  
 - [x] Lambda handlers for validation, transformation, and model  
-- [ ] SAM template (`manual-deploy/infra/template.yaml`)  
-- [ ] Initial Terraform setup (`terraform-deploy/infra/`)  
+- [x] Initial Terraform setup (`terraform-deploy/infra/`)  
 - [ ] Complete deployment documentation  
 - [ ] Integration with EventBridge and automatic triggers  
 - [ ] Full pipeline testing in AWS  
