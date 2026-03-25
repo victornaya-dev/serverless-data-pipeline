@@ -1,0 +1,22 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Terraform lock (opcional: puedes incluirlo o no)
+.terraform.lock.hcl
+
+# Variables sensibles
+*.tfvars
+*.tfvars.json
+
+# ZIP Lambdas (opcional)
+*.zip
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
