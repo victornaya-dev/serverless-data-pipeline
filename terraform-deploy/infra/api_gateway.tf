@@ -2,13 +2,21 @@
 # HTTP API Gateway
 # ----------------------------------------
 resource "aws_apigatewayv2_api" "main" {
-  name          = "api_tosend_data_lambda"  
+  name          = "api_tosend_data_lambda"
   protocol_type = "HTTP"
 
+  cors_configuration {
+    allow_origins = ["https://rain-forecast-frontend.s3.***REMOVED***.amazonaws.com/index.html"]
+    allow_methods = ["POST", "OPTIONS"]
+    allow_headers = ["Content-Type"]
+    max_age       = 300
+  }
+
   lifecycle {
-    ignore_changes = all
+    ignore_changes = [name, protocol_type]  # keep protecting other fields, not cors
   }
 }
+
 
 # ----------------------------------------
 # Stage
@@ -48,3 +56,4 @@ resource "aws_apigatewayv2_route" "main" {
     ignore_changes = all
   }
 }
+
