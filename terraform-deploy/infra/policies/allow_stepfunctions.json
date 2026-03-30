@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "states:ListStateMachineVersions",
+                "states:ListTagsForResource"
+            ],
+            "Resource": "arn:aws:states:***REMOVED***:***REMOVED***:stateMachine:StepFunction_MultipleMeteo"
+        }
+    ]
+}
