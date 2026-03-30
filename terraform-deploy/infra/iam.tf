@@ -3,6 +3,7 @@ resource "aws_iam_user" "serverles_project" {
 }
 
 /*
+TODO add Policies
 # Policy 1
 resource "aws_iam_policy" "stepfunction_policy" {
   name   = "Allow_ListStateMachineVersions"
