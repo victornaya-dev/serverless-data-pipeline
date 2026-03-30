@@ -63,3 +63,23 @@ resource "aws_lambda_function" "lambda_cleaning" {
   }
 }
 
+# ----------------------------------------
+# lambda_triggers_StepFunctionsWorkflow
+# ----------------------------------------
+resource "aws_lambda_function" "lambda_triggers_StepFunctionsWorkflow" {
+  function_name = "lambda_triggers_StepFunctionsWorkflow"
+  role ="arn:aws:iam::***REMOVED***:role/service-role/lambda_triggers_StepFunctionsWorkflow-role-eunnv5l6"  
+  handler       =  "lambda_function.lambda_handler"
+  runtime = "python3.14"
+  timeout      = 3
+  memory_size  = 128
+  filename      = "ignore.zip"  # valor dummy
+
+  # ignora cambios en filename/source_code_hash
+  lifecycle {
+    ignore_changes = [
+      filename,
+      source_code_hash
+    ]
+  }
+}
