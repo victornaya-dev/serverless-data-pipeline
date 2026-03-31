@@ -57,3 +57,14 @@ resource "aws_apigatewayv2_route" "main" {
   }
 }
 
+resource "aws_apigatewayv2_route" "post" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "POST /predict"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda.id}"
+}
+
+resource "aws_apigatewayv2_route" "options" {
+  api_id    = aws_apigatewayv2_api.main.id
+  route_key = "OPTIONS /predict"
+  # no target — API Gateway handles it automatically
+}
