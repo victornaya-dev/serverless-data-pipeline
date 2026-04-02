@@ -6,7 +6,7 @@ resource "aws_apigatewayv2_api" "main" {
   protocol_type = "HTTP"
 
   cors_configuration {
-    allow_origins = ["https://rain-forecast-frontend.s3.***REMOVED***.amazonaws.com/index.html"]
+    allow_origins = ["*"]
     allow_methods = ["POST", "OPTIONS"]
     allow_headers = ["Content-Type"]
     max_age       = 300
