@@ -41,3 +41,12 @@ resource "aws_apigatewayv2_route" "post" {
   route_key = "POST /predict"
   target    = "integrations/${aws_apigatewayv2_integration.lambda.id}"
 }
+
+
+resource "aws_lambda_permission" "apigw" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda_triggers_StepFunctionsWorkflow.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.main.execution_arn}/*/*/predict"
+}
