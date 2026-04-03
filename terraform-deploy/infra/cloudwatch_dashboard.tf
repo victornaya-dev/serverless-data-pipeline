@@ -18,7 +18,7 @@ resource "aws_cloudwatch_dashboard" "main" {
           view    = "timeSeries"
           region  = "***REMOVED***"
           metrics = [
-            ["AWS/ApiGateway", "Count", "ApiId", "mun9h4frh4", { stat = "Sum", label = "Total requests" }]
+            ["AWS/ApiGateway", "Count", "ApiId", local.api_gateway_id, { stat = "Sum", label = "Total requests" }]
           ]
           period = 300
         }
@@ -34,9 +34,9 @@ resource "aws_cloudwatch_dashboard" "main" {
           view    = "timeSeries"
           region  = "***REMOVED***"
           metrics = [
-            ["AWS/ApiGateway", "Latency",        "ApiId", "mun9h4frh4", { stat = "p50", label = "p50" }],
-            ["AWS/ApiGateway", "Latency",        "ApiId", "mun9h4frh4", { stat = "p99", label = "p99" }],
-            ["AWS/ApiGateway", "IntegrationLatency", "ApiId", "mun9h4frh4", { stat = "p50", label = "Integration p50" }]
+            ["AWS/ApiGateway", "Latency",        "ApiId", local.api_gateway_id, { stat = "p50", label = "p50" }],
+            ["AWS/ApiGateway", "Latency",        "ApiId", local.api_gateway_id, { stat = "p99", label = "p99" }],
+            ["AWS/ApiGateway", "IntegrationLatency", "ApiId", local.api_gateway_id, { stat = "p50", label = "Integration p50" }]
           ]
           period = 300
         }
@@ -52,8 +52,8 @@ resource "aws_cloudwatch_dashboard" "main" {
           view    = "timeSeries"
           region  = "***REMOVED***"
           metrics = [
-            ["AWS/ApiGateway", "4xx", "ApiId", "mun9h4frh4", { stat = "Sum", color = "#ff9900", label = "4xx" }],
-            ["AWS/ApiGateway", "5xx", "ApiId", "mun9h4frh4", { stat = "Sum", color = "#d62728", label = "5xx" }]
+            ["AWS/ApiGateway", "4xx", "ApiId", local.api_gateway_id, { stat = "Sum", color = "#ff9900", label = "4xx" }],
+            ["AWS/ApiGateway", "5xx", "ApiId", local.api_gateway_id, { stat = "Sum", color = "#d62728", label = "5xx" }]
           ]
           period = 300
         }
