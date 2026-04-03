@@ -314,6 +314,7 @@
 
       const data = await res.json();
       const body = typeof data.body === "string" ? JSON.parse(data.body) : data.body;
+      const body = typeof outer.body === "string" ? JSON.parse(outer.body) : outer.body;
       const pred = body.prediction;
       const feats = body.features_used;
 
