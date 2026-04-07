@@ -1,5 +1,6 @@
 provider "aws" {
-  region = "***REMOVED***"
+  region = "${var.region}"
 }
+
 
 

@@ -6,7 +6,7 @@ resource "aws_lambda_function" "lambda_validate" {
   function_name = "lambda_validate"
   handler       =  "lambda_function.lambda_handler"
   runtime = "python3.14"
-  role =  "arn:aws:iam::***REMOVED***:role/service-role/lambda_validate-role-12nyhroz"
+  role =  "arn:aws:iam::${var.account_id}:role/service-role/lambda_validate-role-12nyhroz"
   timeout      = 3
   memory_size  = 128
   filename      = "ignore.zip"  # valor dummy
@@ -28,7 +28,7 @@ resource "aws_lambda_function" "lambda_model"{
   function_name = "lambda_model"
   handler       =  "lambda_function.lambda_handler"
   runtime = "python3.14"
-  role = "arn:aws:iam::***REMOVED***:role/service-role/lambda_model-role-ty3ci0bb"
+  role = "arn:aws:iam::${var.account_id}:role/service-role/lambda_model-role-ty3ci0bb"
   timeout      = 3
   memory_size  = 128
   filename      = "ignore.zip"  # valor dummy
@@ -47,7 +47,7 @@ resource "aws_lambda_function" "lambda_model"{
 # ----------------------------------------
 resource "aws_lambda_function" "lambda_cleaning" {
   function_name = "lambda_cleaning"
-  role ="arn:aws:iam::***REMOVED***:role/service-role/lambda_cleaning-role-a8bk6mlk"
+  role ="arn:aws:iam::${var.account_id}:role/service-role/lambda_cleaning-role-a8bk6mlk"
   handler       =  "lambda_function.lambda_handler"
   runtime = "python3.14"
   timeout      = 3
@@ -68,7 +68,7 @@ resource "aws_lambda_function" "lambda_cleaning" {
 # ----------------------------------------
 resource "aws_lambda_function" "lambda_triggers_StepFunctionsWorkflow" {
   function_name = "lambda_triggers_StepFunctionsWorkflow"
-  role ="arn:aws:iam::***REMOVED***:role/service-role/lambda_triggers_StepFunctionsWorkflow-role-eunnv5l6"  
+  role ="arn:aws:iam::${var.account_id}:role/service-role/lambda_triggers_StepFunctionsWorkflow-role-eunnv5l6"  
   handler       =  "lambda_function.lambda_handler"
   runtime = "python3.14"
   timeout      = 3
@@ -83,3 +83,4 @@ resource "aws_lambda_function" "lambda_triggers_StepFunctionsWorkflow" {
     ]
   }
 }
+
