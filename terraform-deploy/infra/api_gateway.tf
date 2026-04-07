@@ -2,7 +2,7 @@
 # HTTP API Gateway
 # ----------------------------------------
 resource "aws_apigatewayv2_api" "main" {
-  name          = "api_tosend_data_lambda"
+  name          = var.api_gateway_name
   protocol_type = "HTTP"
 
   cors_configuration {

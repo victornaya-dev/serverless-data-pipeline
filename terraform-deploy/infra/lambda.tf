@@ -1,7 +1,28 @@
+resource "aws_lambda_function" "all" {
+  for_each = var.lambdas
+
+  function_name = each.value.name
+  handler       = "lambda_function.lambda_handler"
+  runtime       = var.lambda_runtime
+  timeout       = var.lambda_timeout
+  memory_size   = var.lambda_memory
+  role          = "arn:aws:iam::${var.account_id}:role/service-role/${each.value.name}-role-${each.value.role_suffix}"
+  filename      = "ignore.zip"
+
+  lifecycle {
+    ignore_changes = [
+      filename,
+      source_code_hash
+    ]
+  }
+}
+
+
+
 # ----------------------------------------
 # Lambda Validate
 # ----------------------------------------
-
+/*
 resource "aws_lambda_function" "lambda_validate" {
   function_name = "lambda_validate"
   handler       =  "lambda_function.lambda_handler"
@@ -84,3 +105,4 @@ resource "aws_lambda_function" "lambda_triggers_StepFunctionsWorkflow" {
   }
 }
 
+*/
