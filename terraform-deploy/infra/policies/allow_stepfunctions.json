@@ -7,7 +7,7 @@
                 "states:ListStateMachineVersions",
                 "states:ListTagsForResource"
             ],
-            "Resource": "arn:aws:states:***REMOVED***:${var.account_id}:stateMachine:StepFunction_MultipleMeteo"
+            "Resource": "arn:aws:states:us-east-1:${var.account_id}:stateMachine:StepFunction_MultipleMeteo"
         }
     ]
 }

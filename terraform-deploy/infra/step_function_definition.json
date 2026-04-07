@@ -7,7 +7,7 @@
       "Resource": "arn:aws:states:::lambda:invoke",
       "Output": "{% $states.result.Payload %}",
       "Arguments": {
-        "FunctionName": "arn:aws:lambda:***REMOVED***:${var.account_id}:function:lambda_validate:$LATEST",
+        "FunctionName": "arn:aws:lambda:us-east-1:${var.account_id}:function:lambda_validate:$LATEST",
         "Payload": "{% $states.input %}"
       },
       "Retry": [
@@ -31,7 +31,7 @@
       "Resource": "arn:aws:states:::lambda:invoke",
       "Output": "{% $states.result.Payload %}",
       "Arguments": {
-        "FunctionName": "arn:aws:lambda:***REMOVED***:${var.account_id}:function:lambda_cleaning:$LATEST",
+        "FunctionName": "arn:aws:lambda:us-east-1:${var.account_id}:function:lambda_cleaning:$LATEST",
         "Payload": "{% $states.input %}"
       },
       "Retry": [
