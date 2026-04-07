@@ -17,9 +17,12 @@ resource "aws_cloudwatch_dashboard" "main" {
           title   = "API Gateway - Requests"
           view    = "timeSeries"
           region  = "***REMOVED***"
-          metrics = [
+          /* metrics = [
             ["AWS/ApiGateway", "Count", "ApiId", local.api_gateway_id, { stat = "Sum", label = "Total requests" }]
-          ]
+          ]*/
+          metrics = [
+        ["AWS/ApiGateway", "Count", "ApiId", local.api_gateway_id, "Stage", "dev", { stat = "Sum", label = "Total requests" }]
+        ]
           period = 300
         }
       },
