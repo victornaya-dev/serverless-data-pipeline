@@ -1,0 +1,4 @@
+7d1bafec19568fe5fbec8344c803ea1e7d2a8762,MODIFY,regular-file,frontend/index.html,8808,277
+6e7a64b02b566c2912c285242250dade79833ecc,MODIFY,regular-file,src/lambda_triggers_StepFunctionsWorkflow/app.py,1815,8
+570866abbe3b76d40df2f8dddc7b8f7d660ffad7,MODIFY,regular-file,terraform-deploy/infra/policies/allow_stepfunctions.json,347,10
+c4ead9ea01e1afa52a0b724721acdc6552162cab,MODIFY,regular-file,terraform-deploy/infra/step_function_definition.json,1600,10;34

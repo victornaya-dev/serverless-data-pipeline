@@ -20,3 +20,7 @@ crash.log
 # OS
 .DS_Store
 Thumbs.db
+
+terraform-deploy/infra/secrets.txt
+
+*.jar

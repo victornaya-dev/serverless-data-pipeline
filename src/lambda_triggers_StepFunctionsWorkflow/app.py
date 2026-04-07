@@ -5,7 +5,7 @@ import os
 # Step Functions client
 sfn_client = boto3.client("stepfunctions")
 
-STEP_FUNCTION_ARN = "arn:aws:states:***REMOVED***:***REMOVED***:stateMachine:StepFunction_MultipleMeteo"
+STEP_FUNCTION_ARN = "arn:aws:states:***REMOVED***:${var.account_id}:stateMachine:StepFunction_MultipleMeteo"
 
 # STEP_FUNCTION_ARN = os.environ["STEP_FUNCTION_ARN"]
 
