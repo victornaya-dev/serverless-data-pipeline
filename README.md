@@ -79,9 +79,9 @@ serverless-data-pipeline/
 Define your values in a `terraform.tfvars` file (never commit this):
 
 ```hcl
-aws_region    = "eu-west-1"
-environment   = "dev"
-project_name  = "rain-prediction"
+account_id     = "YOUR_AWS_ACCOUNT_ID"
+region         = "us-east-2"
+dashboard_name = "MultipleMeteo-Pipeline"
 ```
 
 See `variables.tf` for the full list of available variables.
@@ -119,6 +119,7 @@ terraform destroy -var-file="terraform.tfvars"
 - The Step Functions definition (`step_function_definition.json`) uses `templatefile()` — ARNs are injected at apply time.
 - Remote state (S3 + DynamoDB lock) is recommended for team use — configure in `main.tf`.
 - Do not commit `terraform.tfvars`, `.terraform/`, or `*.tfstate` to version control.
+- Never expose your `account_id` in public repositories — use a placeholder like `"YOUR_AWS_ACCOUNT_ID"` in all shared files.
 
 ---
 
